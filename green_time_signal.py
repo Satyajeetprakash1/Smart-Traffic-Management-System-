@@ -1,6 +1,6 @@
 def adjust_green_signal_time(vehicle_count):
-    base_green_time = 30  # Base green time in seconds
-    vehicle_multiplier = 2  # Green time increases by 2 seconds per vehicle
+    base_green_time = 30  
+    vehicle_multiplier = 2  
     
     green_time = base_green_time + (vehicle_count * vehicle_multiplier)
     return green_time
