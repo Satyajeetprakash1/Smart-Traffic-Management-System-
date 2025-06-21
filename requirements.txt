@@ -1,7 +1,6 @@
 
-streamlit
-opencv-python-headless
+opencv-python
 ultralytics
+streamlit
 numpy
-pandas
-matplotlib
+Pillow
