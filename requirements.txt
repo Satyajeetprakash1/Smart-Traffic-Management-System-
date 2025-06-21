@@ -3,3 +3,6 @@ opencv-python-headless
 ultralytics
 numpy
 Pillow
+matplotlib
+scikit-learn
+pandas
