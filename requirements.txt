@@ -1,6 +1,6 @@
-
 opencv-python
 ultralytics
 streamlit
 numpy
 Pillow
+lap
