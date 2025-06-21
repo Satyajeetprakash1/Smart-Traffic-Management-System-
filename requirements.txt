@@ -1,6 +1,5 @@
-opencv-python
-ultralytics
 streamlit
+opencv-python-headless
+ultralytics
 numpy
 Pillow
-lap
