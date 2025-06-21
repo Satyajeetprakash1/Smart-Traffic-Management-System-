@@ -6,8 +6,8 @@ import time
 import numpy as np
 from collections import defaultdict
 
-st.set_page_config(page_title="🚦 Smart Traffic Management System", layout="wide")
-st.title("🚦 Smart Traffic Management System with YOLOv8")
+st.set_page_config(page_title="Smart Traffic Management System", layout="wide")
+st.title("Smart Traffic Management System with YOLOv8")
 
 st.markdown("""
 This application analyzes traffic flow from a video using **YOLOv8** object detection and provides:
@@ -18,9 +18,9 @@ This application analyzes traffic flow from a video using **YOLOv8** object dete
 - Traffic density estimation
 """)
 
-uploaded_video = st.file_uploader("📤 Upload a CCTV Feed (mp4/avi)", type=["mp4", "avi", "mov"])
-confidence = st.sidebar.slider("🎯 Confidence Threshold", 0.25, 1.0, 0.5, 0.05)
-model_choice = st.selectbox("🧠 Select YOLOv8 Model", ["yolov8n.pt", "yolov8s.pt", "Custom (upload below)"])
+uploaded_video = st.file_uploader("Upload a CCTV Feed (mp4/avi)", type=["mp4", "avi", "mov"])
+confidence = st.sidebar.slider("Confidence Threshold", 0.25, 1.0, 0.5, 0.05)
+model_choice = st.selectbox("Select YOLOv8 Model", ["yolov8n.pt", "yolov8s.pt", "Custom (upload below)"])
 
 if model_choice == "Custom (upload below)":
     custom_model = st.file_uploader("Upload your custom YOLOv8 model (.pt)", type=["pt"])
@@ -49,7 +49,7 @@ if uploaded_video:
 
     ret, frame = cap.read()
     H, W = frame.shape[:2]
-    line_y = st.sidebar.slider("📏 Crossing Line Y-Position", 0, H, H // 2)
+    line_y = st.sidebar.slider("Crossing Line Y-Position", 0, H, H // 2)
 
     heatmap = np.zeros((H, W), dtype=np.uint32)
     total_frames = 0
@@ -111,14 +111,14 @@ if uploaded_video:
     
     heatmap_norm = np.uint8(255 * heatmap / np.max(heatmap))
     heatmap_color = cv2.applyColorMap(heatmap_norm, cv2.COLORMAP_JET)
-    st.subheader("🔥 Traffic Heatmap")
+    st.subheader("Traffic Heatmap")
     st.image(heatmap_color, channels="BGR", use_container_width=True)
 
-    st.subheader("📊 Vehicle Counts (Line Crossing)")
+    st.subheader("Vehicle Counts (Line Crossing)")
     for vtype, count in vehicle_cross_count.items():
         st.write(f"**{vtype.capitalize()}**: {count}")
 
-    st.success("✅ Processing completed.")
+    st.success("Processing completed.")
 
 else:
-    st.info("📽️ Please upload a video file to begin detection.")
+    st.info("Please upload a video file to begin detection.")
