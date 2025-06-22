@@ -10,3 +10,6 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 EXPOSE 8501
 CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+docker build -t smart-traffic-app .
+docker run -p 8501:8501 smart-traffic-app
