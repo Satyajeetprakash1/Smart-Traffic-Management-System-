@@ -11,6 +11,7 @@ CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0
 
 "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libgl1"
 RUN apt-get update && apt-get install -y libgl1
+sudo apt-get update && sudo apt-get install -y libgl1
 
 
 
